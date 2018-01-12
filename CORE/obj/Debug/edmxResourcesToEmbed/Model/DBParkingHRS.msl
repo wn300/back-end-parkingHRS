@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBParkingHRSModelStoreContainer" CdmEntityContainer="DBParkingHRSEntities">
+    <EntitySetMapping Name="ParkingService">
+      <EntityTypeMapping TypeName="DBParkingHRSModel.ParkingService">
+        <MappingFragment StoreEntitySet="ParkingService">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdRate" ColumnName="IdRate" />
+          <ScalarProperty Name="IdVehicle" ColumnName="IdVehicle" />
+          <ScalarProperty Name="DateTimeEntry" ColumnName="DateTimeEntry" />
+          <ScalarProperty Name="DateTimeExit" ColumnName="DateTimeExit" />
+          <ScalarProperty Name="ServicePrice" ColumnName="ServicePrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rates">
+      <EntityTypeMapping TypeName="DBParkingHRSModel.Rates">
+        <MappingFragment StoreEntitySet="Rates">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vehicle">
+      <EntityTypeMapping TypeName="DBParkingHRSModel.Vehicle">
+        <MappingFragment StoreEntitySet="Vehicle">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="VehicularPlate" ColumnName="VehicularPlate" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Driver" ColumnName="Driver" />
+          <ScalarProperty Name="DriverIdentification" ColumnName="DriverIdentification" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

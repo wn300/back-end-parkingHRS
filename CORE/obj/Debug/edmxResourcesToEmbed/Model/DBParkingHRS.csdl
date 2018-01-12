@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBParkingHRSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ParkingService">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="IdRate" Type="Int32" Nullable="false" />
+    <Property Name="IdVehicle" Type="Int32" Nullable="false" />
+    <Property Name="DateTimeEntry" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DateTimeExit" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ServicePrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Rates" Relationship="Self.FK_ParkingService_Rates" FromRole="ParkingService" ToRole="Rates" />
+    <NavigationProperty Name="Vehicle" Relationship="Self.FK_ParkingService_Vehicle" FromRole="ParkingService" ToRole="Vehicle" />
+  </EntityType>
+  <EntityType Name="Rates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rate" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="ParkingService" Relationship="Self.FK_ParkingService_Rates" FromRole="Rates" ToRole="ParkingService" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VehicularPlate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Driver" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DriverIdentification" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Phone" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="ParkingService" Relationship="Self.FK_ParkingService_Vehicle" FromRole="Vehicle" ToRole="ParkingService" />
+  </EntityType>
+  <Association Name="FK_ParkingService_Rates">
+    <End Role="Rates" Type="Self.Rates" Multiplicity="1" />
+    <End Role="ParkingService" Type="Self.ParkingService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rates">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ParkingService">
+        <PropertyRef Name="IdRate" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParkingService_Vehicle">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="1" />
+    <End Role="ParkingService" Type="Self.ParkingService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ParkingService">
+        <PropertyRef Name="IdVehicle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBParkingHRSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ParkingService" EntityType="Self.ParkingService" />
+    <EntitySet Name="Rates" EntityType="Self.Rates" />
+    <EntitySet Name="Vehicle" EntityType="Self.Vehicle" />
+    <AssociationSet Name="FK_ParkingService_Rates" Association="Self.FK_ParkingService_Rates">
+      <End Role="Rates" EntitySet="Rates" />
+      <End Role="ParkingService" EntitySet="ParkingService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParkingService_Vehicle" Association="Self.FK_ParkingService_Vehicle">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="ParkingService" EntitySet="ParkingService" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,10 @@
+D:\Wilmer\Portafolio\ParkingHRS\CORE\CORE\bin\Debug\CORE.dll.config
+D:\Wilmer\Portafolio\ParkingHRS\CORE\CORE\bin\Debug\CORE.dll
+D:\Wilmer\Portafolio\ParkingHRS\CORE\CORE\bin\Debug\CORE.pdb
+D:\Wilmer\Portafolio\ParkingHRS\CORE\CORE\bin\Debug\EntityFramework.dll
+D:\Wilmer\Portafolio\ParkingHRS\CORE\CORE\bin\Debug\EntityFramework.SqlServer.dll
+D:\Wilmer\Portafolio\ParkingHRS\CORE\CORE\bin\Debug\EntityFramework.xml
+D:\Wilmer\Portafolio\ParkingHRS\CORE\CORE\bin\Debug\EntityFramework.SqlServer.xml
+D:\Wilmer\Portafolio\ParkingHRS\CORE\CORE\obj\Debug\CORE.csprojResolveAssemblyReference.cache
+D:\Wilmer\Portafolio\ParkingHRS\CORE\CORE\obj\Debug\CORE.dll
+D:\Wilmer\Portafolio\ParkingHRS\CORE\CORE\obj\Debug\CORE.pdb
