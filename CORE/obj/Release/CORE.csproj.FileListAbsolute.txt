@@ -1,0 +1,11 @@
+W:\Wilmer Mancera\Portafolio\back-end-parkingHRS\CORE\bin\Release\CORE.dll.config
+W:\Wilmer Mancera\Portafolio\back-end-parkingHRS\CORE\bin\Release\CORE.dll
+W:\Wilmer Mancera\Portafolio\back-end-parkingHRS\CORE\bin\Release\CORE.pdb
+W:\Wilmer Mancera\Portafolio\back-end-parkingHRS\CORE\bin\Release\EntityFramework.dll
+W:\Wilmer Mancera\Portafolio\back-end-parkingHRS\CORE\bin\Release\EntityFramework.SqlServer.dll
+W:\Wilmer Mancera\Portafolio\back-end-parkingHRS\CORE\bin\Release\EntityFramework.xml
+W:\Wilmer Mancera\Portafolio\back-end-parkingHRS\CORE\bin\Release\EntityFramework.SqlServer.xml
+W:\Wilmer Mancera\Portafolio\back-end-parkingHRS\CORE\obj\Release\CORE.csprojResolveAssemblyReference.cache
+W:\Wilmer Mancera\Portafolio\back-end-parkingHRS\CORE\obj\Release\CORE.csproj.CoreCompileInputs.cache
+W:\Wilmer Mancera\Portafolio\back-end-parkingHRS\CORE\obj\Release\CORE.dll
+W:\Wilmer Mancera\Portafolio\back-end-parkingHRS\CORE\obj\Release\CORE.pdb

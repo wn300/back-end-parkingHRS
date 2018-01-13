@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBParkingHRSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ParkingService">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdRate" Type="int" Nullable="false" />
+    <Property Name="IdVehicle" Type="int" Nullable="false" />
+    <Property Name="Estate" Type="int" Nullable="false" />
+    <Property Name="DateTimeEntry" Type="smalldatetime" Nullable="false" />
+    <Property Name="DateTimeExit" Type="smalldatetime" />
+    <Property Name="ServicePrice" Type="money" />
+  </EntityType>
+  <EntityType Name="Rates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rate" Type="money" Nullable="false" />
+    <Property Name="Date" Type="smalldatetime" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vehicle">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VehicularPlate" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Brand" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Color" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Driver" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DriverIdentification" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Phone" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ParkingService_Rates">
+    <End Role="Rates" Type="Self.Rates" Multiplicity="1" />
+    <End Role="ParkingService" Type="Self.ParkingService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rates">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ParkingService">
+        <PropertyRef Name="IdRate" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ParkingService_Vehicle">
+    <End Role="Vehicle" Type="Self.Vehicle" Multiplicity="1" />
+    <End Role="ParkingService" Type="Self.ParkingService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehicle">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ParkingService">
+        <PropertyRef Name="IdVehicle" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBParkingHRSModelStoreContainer">
+    <EntitySet Name="ParkingService" EntityType="Self.ParkingService" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rates" EntityType="Self.Rates" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vehicle" EntityType="Self.Vehicle" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ParkingService_Rates" Association="Self.FK_ParkingService_Rates">
+      <End Role="Rates" EntitySet="Rates" />
+      <End Role="ParkingService" EntitySet="ParkingService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ParkingService_Vehicle" Association="Self.FK_ParkingService_Vehicle">
+      <End Role="Vehicle" EntitySet="Vehicle" />
+      <End Role="ParkingService" EntitySet="ParkingService" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
