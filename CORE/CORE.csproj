@@ -77,12 +77,11 @@
       <DependentUpon>DBParkingHRS.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ParkingServices\ParkingServicesService.cs" />
+    <Compile Include="Services\Rates\RatesService.cs" />
+    <Compile Include="Services\Vehicle\VehicleService.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\ParkingServices\" />
-    <Folder Include="Services\Rates\" />
-    <Folder Include="Services\Vehicle\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EntityDeploy Include="Model\DBParkingHRS.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

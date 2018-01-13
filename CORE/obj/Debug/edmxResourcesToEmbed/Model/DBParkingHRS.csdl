@@ -8,10 +8,11 @@
     <Property Name="IdRate" Type="Int32" Nullable="false" />
     <Property Name="IdVehicle" Type="Int32" Nullable="false" />
     <Property Name="DateTimeEntry" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="DateTimeExit" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="ServicePrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="DateTimeExit" Type="DateTime" Precision="0" />
+    <Property Name="ServicePrice" Type="Decimal" Precision="19" Scale="4" />
     <NavigationProperty Name="Rates" Relationship="Self.FK_ParkingService_Rates" FromRole="ParkingService" ToRole="Rates" />
     <NavigationProperty Name="Vehicle" Relationship="Self.FK_ParkingService_Vehicle" FromRole="ParkingService" ToRole="Vehicle" />
+    <Property Name="Estate" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="Rates">
     <Key>

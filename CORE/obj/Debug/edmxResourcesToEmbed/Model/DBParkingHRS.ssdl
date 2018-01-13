@@ -4,12 +4,13 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IdRate" Type="int" Nullable="false" />
     <Property Name="IdVehicle" Type="int" Nullable="false" />
+    <Property Name="Estate" Type="int" Nullable="false" />
     <Property Name="DateTimeEntry" Type="smalldatetime" Nullable="false" />
-    <Property Name="DateTimeExit" Type="smalldatetime" Nullable="false" />
-    <Property Name="ServicePrice" Type="money" Nullable="false" />
+    <Property Name="DateTimeExit" Type="smalldatetime" />
+    <Property Name="ServicePrice" Type="money" />
   </EntityType>
   <EntityType Name="Rates">
     <Key>
