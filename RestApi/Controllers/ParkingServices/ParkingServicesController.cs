@@ -41,16 +41,30 @@ namespace RestApi.Controllers.ParkingServices
         }
 
         [HttpGet]
+        [Route("ParkingServices/all/previous/vehicules")]
+        public object GetAllPreviousParkingServiceController()
+        {
+            return Ok(ParkingServicesService.GetAllPreviousParkingService());
+        }        
+
+        [HttpGet]
         [Route("ParkingServices/cuerrentServices/vehicules")]
-        public object GetAllTheCurrentServicesAndTheirVehicles()
+        public object GetAllTheCurrentServicesAndTheirVehiclesController()
         {
             return Ok(ParkingServicesService.GetAllTheCurrentServicesAndTheirVehicles());
         }
 
+        [HttpGet]
+        [Route("ParkingServices/id/{id}")]
+        public object GetServicesByIdController(int id)
+        {
+            return Ok(ParkingServicesService.GetServicesById(id));
+        }        
+
         [HttpPost]
         [Route("ParkingServices/new")]
         public IHttpActionResult PostParkingServiceController(ParkingService parkingService)
-        {
+        {            
             ParkingServicesService.PostParkingService(parkingService);
             return Ok();
         }
@@ -58,7 +72,7 @@ namespace RestApi.Controllers.ParkingServices
         [HttpPut]
         [Route("ParkingServices/update")]
         public IHttpActionResult PutParkingServiceController([FromBody]ParkingService parkingService)
-        {
+        {           
             ParkingServicesService.PutParkingService(parkingService);
             return Ok();
         }

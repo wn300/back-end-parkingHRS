@@ -16,6 +16,7 @@
           <Property Name="DateTimeEntry" Type="smalldatetime" Nullable="false" />
           <Property Name="DateTimeExit" Type="smalldatetime" />
           <Property Name="ServicePrice" Type="money" />
+          <Property Name="Minutes" Type="numeric" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="Rates">
           <Key>
@@ -92,6 +93,7 @@
           <NavigationProperty Name="Rates" Relationship="Self.FK_ParkingService_Rates" FromRole="ParkingService" ToRole="Rates" />
           <NavigationProperty Name="Vehicle" Relationship="Self.FK_ParkingService_Vehicle" FromRole="ParkingService" ToRole="Vehicle" />
           <Property Name="Estate" Type="Int32" Nullable="false" />
+          <Property Name="Minutes" Type="Decimal" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="Rates">
           <Key>
@@ -162,6 +164,7 @@
           <EntitySetMapping Name="ParkingService">
             <EntityTypeMapping TypeName="DBParkingHRSModel.ParkingService">
               <MappingFragment StoreEntitySet="ParkingService">
+                <ScalarProperty Name="Minutes" ColumnName="Minutes" />
                 <ScalarProperty Name="Estate" ColumnName="Estate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IdRate" ColumnName="IdRate" />

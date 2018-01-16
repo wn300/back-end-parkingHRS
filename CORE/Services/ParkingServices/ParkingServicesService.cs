@@ -21,7 +21,7 @@ namespace CORE.Services.ParkingServices
                                         {
                                             parking.Id,
                                             parking.IdRate,
-                                            Rate = new {
+                                            Rates = new {
                                                 parking.Rates.Id,
                                                 parking.Rates.Rate,
                                                 parking.Rates.Description,
@@ -41,6 +41,7 @@ namespace CORE.Services.ParkingServices
                                             parking.DateTimeExit,
                                             parking.ServicePrice,
                                             parking.Estate,
+                                            parking.Minutes,
                                         }).ToList();
 
                     return parkingResult;
@@ -65,7 +66,7 @@ namespace CORE.Services.ParkingServices
                                          {
                                              parking.Id,
                                              parking.IdRate,
-                                             Rate = new
+                                             Rates = new
                                              {
                                                  parking.Rates.Id,
                                                  parking.Rates.Rate,
@@ -86,6 +87,52 @@ namespace CORE.Services.ParkingServices
                                              parking.DateTimeExit,
                                              parking.ServicePrice,
                                              parking.Estate,
+                                             parking.Minutes,
+                                         }).ToList();
+
+                    return parkingResult;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static object GetAllPreviousParkingService()
+        {
+            try
+            {
+                using (var context = DBParkingHRSEntities.Instance)
+                {
+                    var parkingResult = (from parking in context.ParkingService
+                                         where parking.Estate.Equals(1)
+                                         select new
+                                         {
+                                             parking.Id,
+                                             parking.IdRate,
+                                             Rates = new
+                                             {
+                                                 parking.Rates.Id,
+                                                 parking.Rates.Rate,
+                                                 parking.Rates.Description,
+                                             },
+                                             parking.IdVehicle,
+                                             Vehicle = new
+                                             {
+                                                 parking.Vehicle.Id,
+                                                 parking.Vehicle.VehicularPlate,
+                                                 parking.Vehicle.Brand,
+                                                 parking.Vehicle.Color,
+                                                 parking.Vehicle.Driver,
+                                                 parking.Vehicle.DriverIdentification,
+                                                 parking.Vehicle.Phone,
+                                             },
+                                             parking.DateTimeEntry,
+                                             parking.DateTimeExit,
+                                             parking.ServicePrice,
+                                             parking.Estate,
+                                             parking.Minutes,
                                          }).ToList();
 
                     return parkingResult;
@@ -110,7 +157,7 @@ namespace CORE.Services.ParkingServices
                                          {
                                              parking.Id,
                                              parking.IdRate,
-                                             Rate = new
+                                             Rates = new
                                              {
                                                  parking.Rates.Id,
                                                  parking.Rates.Rate,
@@ -131,6 +178,7 @@ namespace CORE.Services.ParkingServices
                                              parking.DateTimeExit,
                                              parking.ServicePrice,
                                              parking.Estate,
+                                             parking.Minutes,
                                          }).ToList();
 
                     return parkingResult;
@@ -154,7 +202,7 @@ namespace CORE.Services.ParkingServices
                                          {
                                              parking.Id,
                                              parking.IdRate,
-                                             Rate = new
+                                             Rates = new
                                              {
                                                  parking.Rates.Id,
                                                  parking.Rates.Rate,
@@ -175,6 +223,7 @@ namespace CORE.Services.ParkingServices
                                              parking.DateTimeExit,
                                              parking.ServicePrice,
                                              parking.Estate,
+                                             parking.Minutes,
                                          }).ToList();
 
                     return parkingResult;
@@ -198,7 +247,7 @@ namespace CORE.Services.ParkingServices
                                          {
                                              parking.Id,
                                              parking.IdRate,
-                                             Rate = new
+                                             Rates = new
                                              {
                                                  parking.Rates.Id,
                                                  parking.Rates.Rate,
@@ -219,6 +268,52 @@ namespace CORE.Services.ParkingServices
                                              parking.DateTimeExit,
                                              parking.ServicePrice,
                                              parking.Estate,
+                                             parking.Minutes,
+                                         }).ToList();
+
+                    return parkingResult;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public static object GetServicesById(int id)
+        {
+            try
+            {
+                using (var context = DBParkingHRSEntities.Instance)
+                {
+                    var parkingResult = (from parking in context.ParkingService
+                                         where parking.Id.Equals(id)
+                                         select new
+                                         {
+                                             parking.Id,
+                                             parking.IdRate,
+                                             Rates = new
+                                             {
+                                                 parking.Rates.Id,
+                                                 parking.Rates.Rate,
+                                                 parking.Rates.Description,
+                                             },
+                                             parking.IdVehicle,
+                                             Vehicle = new
+                                             {
+                                                 parking.Vehicle.Id,
+                                                 parking.Vehicle.VehicularPlate,
+                                                 parking.Vehicle.Brand,
+                                                 parking.Vehicle.Color,
+                                                 parking.Vehicle.Driver,
+                                                 parking.Vehicle.DriverIdentification,
+                                                 parking.Vehicle.Phone,
+                                             },
+                                             parking.DateTimeEntry,
+                                             parking.DateTimeExit,
+                                             parking.ServicePrice,
+                                             parking.Estate,
+                                             parking.Minutes,
                                          }).ToList();
 
                     return parkingResult;
@@ -236,6 +331,7 @@ namespace CORE.Services.ParkingServices
             {
                 using (var context = DBParkingHRSEntities.Instance)
                 {
+                    parkingServices.DateTimeEntry = DateTime.Now;
                     context.ParkingService.Add(parkingServices);
                     context.SaveChanges();
                 }
@@ -252,6 +348,14 @@ namespace CORE.Services.ParkingServices
             {
                 using (var context = DBParkingHRSEntities.Instance)
                 {
+                    parkingServices.DateTimeExit = DateTime.Now;
+                    DateTime? entry = parkingServices.DateTimeEntry;
+                    DateTime? exit = parkingServices.DateTimeExit;
+                    double diferenceDates =  (exit - entry).Value.TotalMinutes;
+                    var totalPrice = Convert.ToDecimal(diferenceDates) * parkingServices.Rates.Rate;
+                    parkingServices.Minutes = Convert.ToDecimal(diferenceDates);
+                    parkingServices.Estate = 1;
+                    parkingServices.ServicePrice = totalPrice;
                     context.Entry(parkingServices).State = EntityState.Modified;
                     context.SaveChanges();
                 }

@@ -13,6 +13,7 @@
     <NavigationProperty Name="Rates" Relationship="Self.FK_ParkingService_Rates" FromRole="ParkingService" ToRole="Rates" />
     <NavigationProperty Name="Vehicle" Relationship="Self.FK_ParkingService_Vehicle" FromRole="ParkingService" ToRole="Vehicle" />
     <Property Name="Estate" Type="Int32" Nullable="false" />
+    <Property Name="Minutes" Type="Decimal" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="Rates">
     <Key>

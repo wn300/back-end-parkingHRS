@@ -184,3 +184,9 @@ W:\Wilmer Mancera\Portafolio\back-end-parkingHRS\RestApi\obj\Debug\RestApi.cspro
 W:\Wilmer Mancera\Portafolio\back-end-parkingHRS\RestApi\obj\Debug\RestApi.csproj.CoreCompileInputs.cache
 W:\Wilmer Mancera\Portafolio\back-end-parkingHRS\RestApi\obj\Debug\RestApi.dll
 W:\Wilmer Mancera\Portafolio\back-end-parkingHRS\RestApi\obj\Debug\RestApi.pdb
+D:\Wilmer\Portafolio\ParkingHRS\CORE\RestApi\bin\CORE.dll
+D:\Wilmer\Portafolio\ParkingHRS\CORE\RestApi\bin\System.Web.Cors.dll
+D:\Wilmer\Portafolio\ParkingHRS\CORE\RestApi\bin\System.Web.Http.Cors.dll
+D:\Wilmer\Portafolio\ParkingHRS\CORE\RestApi\bin\CORE.pdb
+D:\Wilmer\Portafolio\ParkingHRS\CORE\RestApi\bin\System.Web.Http.Cors.xml
+D:\Wilmer\Portafolio\ParkingHRS\CORE\RestApi\obj\Debug\RestApi.csprojResolveAssemblyReference.cache

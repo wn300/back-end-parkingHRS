@@ -4,6 +4,7 @@
     <EntitySetMapping Name="ParkingService">
       <EntityTypeMapping TypeName="DBParkingHRSModel.ParkingService">
         <MappingFragment StoreEntitySet="ParkingService">
+          <ScalarProperty Name="Minutes" ColumnName="Minutes" />
           <ScalarProperty Name="Estate" ColumnName="Estate" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IdRate" ColumnName="IdRate" />

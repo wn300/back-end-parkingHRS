@@ -33,6 +33,7 @@ namespace CORE.Services.Rates
             {
                 using (var context = DBParkingHRSEntities.Instance)
                 {
+                    rate.Date = DateTime.Now;
                     context.Rates.Add(rate);
                     context.SaveChanges();
                 }

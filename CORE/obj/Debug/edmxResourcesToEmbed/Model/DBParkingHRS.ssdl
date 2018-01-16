@@ -11,6 +11,7 @@
     <Property Name="DateTimeEntry" Type="smalldatetime" Nullable="false" />
     <Property Name="DateTimeExit" Type="smalldatetime" />
     <Property Name="ServicePrice" Type="money" />
+    <Property Name="Minutes" Type="numeric" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="Rates">
     <Key>
