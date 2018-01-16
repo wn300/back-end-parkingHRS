@@ -17,8 +17,16 @@ namespace RestApi
             json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
             config.Formatters.Remove(config.Formatters.XmlFormatter);
 
-            var corsAttr = new EnableCorsAttribute("*", "*", "*");
-            config.EnableCors(corsAttr);
+            //var corsAttr = new EnableCorsAttribute("*", "*", "*");
+            //config.EnableCors(corsAttr);
+            //config.EnableCors();
+
+            var cors = new EnableCorsAttribute(
+            origins: "*",
+            headers: "*",
+            methods: "*");
+            config.EnableCors(cors);
+
 
             // Web API configuration and services
             // Configure Web API to use only bearer token authentication.
